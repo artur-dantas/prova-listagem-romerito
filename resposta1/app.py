@@ -96,43 +96,6 @@ def create_danca():
     conn.close()
     return render_template('pages/create-danca.html', users=users)
 
-'''
-
-@app.route('/<int:id>/listar_danca')
-def listar_danca(id):
-    conn = obter_conexao()
-    danca = conn.execute("SELECT * FROM danca WHERE id = ?", (id,)).fetchone()
-    conn.close()
-    if danca:
-        return render_template('pages/show-danca.html', danca=danca)
-    return "Esta danca não existe"
-
-@app.route('/listar_danca')
-def listar_danca():
-    conn = obter_conexao()
-    danca = conn.execute("SELECT * FROM danca").fetchall()
-    conn.close()
-    return render_template('pages/listar-danca.html', danca=danca)
-
-
-@app.route('/<int:id>/remove_danca', methods=['POST'])
-def remove_danca(id):
-    conn = obter_conexao()
-    conn.execute("DELETE FROM danca WHERE id = ?", (id,))
-    conn.commit()
-    conn.close()
-    return redirect(url_for('listar_danca'))
-
-    '''
-
-
-
-
-
-
-
-
-
 
 @app.route('/liatar_dancas',  methods=['GET'])
 def listar_dancas():
